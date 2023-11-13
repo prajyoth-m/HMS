@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="user-modal is-visible">
+    <div class="user-modal-container">
+      <ul class="switcher">
+        <li><a href="#0" [ngClass]="{selected: signIn}" (click)="signIn=true; signUp=false">Sign in</a></li>
+        <li><a href="#0" [ngClass]="{selected: signUp}" (click)="signUp=true; signIn=false ">New account</a></li>
+      </ul>
+
+      <div id="login" [ngClass]="{'is-selected': signIn}">
+        <form class="form">
+          <p class="fieldset">
+            <label class="image-replace email" for="signin-email">E-mail</label>
+            <input class="full-width has-padding has-border" id="signin-email" type="email" placeholder="E-mail"
+              [(ngModel)]="userEmail" [ngModelOptions]="{standalone: true}">
+            <span class="error-message">An account with this email address does not exist!</span>
+          </p>
+
+          <p class="fieldset">
+            <label class="image-replace password" for="signin-password">Password</label>
+            <input class="full-width has-padding has-border" id="signin-password" [ngClass]="{'has-error': pwdError}"
+              [type]="showpwd?'text':'password'" placeholder="Password" [(ngModel)]="userPassword"
+              [ngModelOptions]="{standalone: true}">
+            <a href="#0" class="hide-password" [style]="showpwd?'visibility: hidden':'visibility: visible'"
+              (click)="showpwd=true">Show</a>
+            <a href="#0" class="hide-password" [style]="showpwd?'visibility: visible':'visibility: hidden'"
+              (click)="showpwd=false">Hide</a>
+            <span class="error-message" [ngClass]="{'is-visible': pwdError}">Wrong password! Try again.</span>
+          </p>
+
+          <p class="fieldset">
+            <ion-button color="primary" (click)="doLogin()" class="full-width" expand="block">
+              Login
+            </ion-button>
+          </p>
+        </form>
+      </div>
+
+      <div id="signup" [ngClass]="{'is-selected': signUp}">
+        <form class="form">
+          <p class="fieldset">
+            <label class="image-replace username" for="signup-username">Username</label>
+            <input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="Username"
+              [(ngModel)]="userName" [ngModelOptions]="{standalone: true}">
+          </p>
+
+          <p class="fieldset">
+            <label class="image-replace email" for="signup-email">E-mail</label>
+            <input class="full-width has-padding has-border" id="signup-email" type="email" placeholder="E-mail"
+              [(ngModel)]="userEmail" [ngModelOptions]="{standalone: true}">
+          </p>
+
+          <p class="fieldset">
+            <label class="image-replace password" for="signup-password">Password</label>
+            <input class="full-width has-padding has-border" id="signup-password" type="password" placeholder="Password"
+              [(ngModel)]="userPassword" [ngModelOptions]="{standalone: true}">
+            <a href="#0" class="hide-password">Show</a>
+          </p>
+
+          <p class="fieldset">
+            <input type="checkbox" id="accept-terms">
+            <label for="accept-terms">&nbsp;&nbsp;I agree to the <a class="accept-terms" href="#0">Terms</a></label>
+          </p>
+
+          <p class="fieldset">
+            <ion-button color="primary" (click)="createUser()" class="full-width" expand="block">
+              Create User
+            </ion-button>
+          </p>
+        </form>
+
+        <!-- <a href="#0" class="cd-close-form">Close</a> -->
+      </div>
+
+      <div id="reset-password">
+        <p class="form-message">Lost your password? Please enter your email address.<br /> You will receive a link to
+          create a new password.</p>
+
+        <form class="form">
+          <p class="fieldset">
+            <label class="image-replace email" for="reset-email">E-mail</label>
+            <input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="E-mail">
+            <span class="error-message">An account with this email does not exist!</span>
+          </p>
+
+          <p class="fieldset">
+            <input class="full-width has-padding" type="submit" value="Reset password">
+          </p>
+        </form>
+
+        <p class="form-bottom-message"><a href="#0">Back to log-in</a></p>
+      </div>
+    </div>
+  </div>
+</ion-content>
