@@ -1,9 +1,35 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>appointments</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Appointments</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['']" routerLinkActive="router-link-active">
+        Logout
+      </ion-button>
+      <ion-icon name="log-out"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card style="min-width: 450px;margin-left: 1rem;margin-top: 1rem; display: inline-block;" *ngFor="let appointment of appointments">
+    <ion-card-header>
+      <ion-card-title>
+        <ion-item lines="none">
+          <ion-label lines="none"> Patient Name: {{appointment.patient.name}} </ion-label>
+          <ion-label lines="none">
+            <ion-chip outline color="primary" (click)="editAppointment(appointment)">
+              <ion-icon name="calendar-number"></ion-icon>
+              <ion-label> {{appointment.date}} </ion-label>
+            </ion-chip>
+          </ion-label>
+        </ion-item>
+      </ion-card-title>
 
+    </ion-card-header>
+    <ion-item-divider></ion-item-divider>
+    <ion-card-content>
+      {{appointment.name}}
+    </ion-card-content>
+      <ion-button fill="clear" color="danger"> Cancel </ion-button>
+  </ion-card>
 </ion-content>

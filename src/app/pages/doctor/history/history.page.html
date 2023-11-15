@@ -1,9 +1,50 @@
 <ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Records</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['']" routerLinkActive="router-link-active">
+        Logout
+      </ion-button>
+      <ion-icon name="log-out"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
   <ion-toolbar>
-    <ion-title>history</ion-title>
+    <ion-searchbar
+      placeholder="Sreach By Patient Name"
+      [(ngModel)]="userName"
+    ></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-card *ngFor="let arch of archives | userSearch:userName:'patientName'">
+    <ion-card-header>
+      <ion-card-title>
+        <ion-item lines="none">
+          <ion-label slot="start">
+            Patient Name: {{arch.patientName}}
+          </ion-label>
+          <ion-chip [color]="arch.status.toLowerCase()==='completed'?'success':'danger'" slot="end">
+            <ion-label> Status: {{arch.status}} </ion-label>
+          </ion-chip>
+        </ion-item>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-label> Archive Name: {{arch.name}} </ion-label>
+        <ion-item
+          *ngFor="let app of arch.appointments"
+          (click)="openAppDesc(app)"
+        >
+          <ion-icon name="document-text" slot="start"></ion-icon>
+          <ion-label> {{app.name}} </ion-label>
+          <ion-chip slot="end" color="primary">
+            <ion-icon name="calendar-number"></ion-icon>
+            <ion-label>{{app.date}}</ion-label>
+          </ion-chip>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

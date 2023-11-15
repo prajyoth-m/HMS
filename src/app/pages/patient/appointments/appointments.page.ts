@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { AlertController } from "@ionic/angular";
 import { Appointment } from "src/app/models/appointment";
+import { Doctor } from "src/app/models/doctor";
 
 @Component({
   selector: "app-appointments",
@@ -18,14 +19,20 @@ export class AppointmentsPage implements OnInit {
     appoint.name = "This appointment is to check if the patient has flu.";
     appoint.report =
       "Appointment with doctor Balaji is set to do a regular checkup on the patient, patient is showing symptoms of a regular flu.";
-    appoint.doctor = "Balaji";
+    appoint.doctor = new Doctor();
+    appoint.doctor.doctorID = 101;
+    appoint.doctor.name = "balaji";
+    appoint.doctor.specialization = "general";
     this.appointments.push(appoint);
     let appoint2 = new Appointment();
     appoint2.date = "28/12/2023 12:30:00";
     appoint2.name = "This appointment is to check if the patient has flu.";
     appoint2.report =
       "Appointment with doctor Balaji is set to do a regular checkup on the patient, patient is showing symptoms of a regular flu.";
-    appoint2.doctor = "Balaji";
+    appoint2.doctor = new Doctor();
+    appoint2.doctor.doctorID = 101;
+    appoint2.doctor.name = "balaji";
+    appoint2.doctor.specialization = "general";
     this.appointments.push(appoint2);
     console.log(this.appointments);
   }
