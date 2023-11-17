@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ManageUsersPageRoutingModule } from './manage-users-routing.module';
 
 import { ManageUsersPage } from './manage-users.page';
+import { CreateUserPage } from '../create-user/create-user.page';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { ManageUsersPage } from './manage-users.page';
     IonicModule,
     ManageUsersPageRoutingModule
   ],
-  declarations: [ManageUsersPage]
+  declarations: [ManageUsersPage, CreateUserPage]
 })
 export class ManageUsersPageModule {}

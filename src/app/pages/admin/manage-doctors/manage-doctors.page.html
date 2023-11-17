@@ -1,9 +1,36 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>manage-doctors</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Manage Doctors</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['']" routerLinkActive="router-link-active">
+        Logout
+      </ion-button>
+      <ion-icon name="log-out"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="createDoc()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
+  <ion-card style="min-width: 200px; display: inline-block;" *ngFor="let doc of doctors">
+    <ion-card-header>
+      <ion-card-title>
+        <ion-list>
+        <ion-item>
+          <ion-avatar slot="start">
+            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          </ion-avatar>
+          <ion-label>{{doc.name}}</ion-label>
+        </ion-item>
+      </ion-list>
+      </ion-card-title>
+      <ion-card-subtitle> {{doc.specialization}} </ion-card-subtitle>
+    </ion-card-header>
+    <ion-button  fill="clear" (click)="editDoctor(doc)">Edit</ion-button>
+  </ion-card>
 </ion-content>

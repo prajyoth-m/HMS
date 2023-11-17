@@ -1,9 +1,48 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>create-bill</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Edit Bill</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()"> Close </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title> Provide below details to edit the bill </ion-card-title>
+      <ion-card-subtitle>{{data.patient.name}} {{data.name}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid style="width: 85%">
+        <ion-col>
+          <ion-item fill="outline">
+            <ion-label position="floating">Bill Amount</ion-label>
+            <ion-input
+              type="text"
+              autocomplete="off"
+              autocorrect="off"
+              required
+              [(ngModel)]="data.bill"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item fill="outline">
+            <ion-label position="floating">Status</ion-label>
+            <ion-input
+              type="text"
+              autocomplete="off"
+              autocorrect="off"
+              required
+              [(ngModel)]="data.status"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-grid>
+    </ion-card-content>
+    <ion-button expand="full" (click)="submit()">Submit</ion-button>
+  </ion-card>
 
+  
 </ion-content>

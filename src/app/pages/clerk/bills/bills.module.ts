@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { BillsPageRoutingModule } from './bills-routing.module';
 
 import { BillsPage } from './bills.page';
+import { CreateBillPage } from '../create-bill/create-bill.page';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { BillsPage } from './bills.page';
     IonicModule,
     BillsPageRoutingModule
   ],
-  declarations: [BillsPage]
+  declarations: [BillsPage, CreateBillPage]
 })
 export class BillsPageModule {}

@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ManageDoctorsPageRoutingModule } from './manage-doctors-routing.module';
 
 import { ManageDoctorsPage } from './manage-doctors.page';
+import { CreateDocPage } from '../create-doc/create-doc.page';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { ManageDoctorsPage } from './manage-doctors.page';
     IonicModule,
     ManageDoctorsPageRoutingModule
   ],
-  declarations: [ManageDoctorsPage]
+  declarations: [ManageDoctorsPage, CreateDocPage]
 })
 export class ManageDoctorsPageModule {}

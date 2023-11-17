@@ -1,9 +1,65 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>create-appointment</ion-title>
+  <ion-toolbar color="secondary">
+    <ion-title>Create Appointment</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()"> Close </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        Enter the below details to create an appointment.
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid style="width: 85%">
+        <ion-col>
+          <ion-item fill="outline">
+            <ion-label position="floating">Patient Name</ion-label>
+            <ion-input
+              type="text"
+              autocomplete="off"
+              autocorrect="off"
+              required
+              [(ngModel)]="data.patient.name"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item fill="outline">
+            <ion-label position="floating">Appointment Description</ion-label>
+            <ion-input
+              type="text"
+              autocomplete="off"
+              autocorrect="off"
+              required
+              [(ngModel)]="data.name"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item fill="outline">
+            <ion-label position="floating">Doctor Name</ion-label>
+            <ion-input
+              type="text"
+              autocomplete="off"
+              autocorrect="off"
+              required
+              [(ngModel)]="data.doctor.name"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item fill="outline" mode="md">
+            <ion-label position="floating">Date</ion-label>
+            <ion-datetime [(ngModel)]="data.date" mode="md" display-format="DD-MM-YYYY HH:mm"></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-grid>
+    </ion-card-content>
+    <ion-button expand="full" (click)="submit()">Submit</ion-button>
+  </ion-card>
 </ion-content>

@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ManageAppointmentsPageRoutingModule } from './manage-appointments-routing.module';
 
 import { ManageAppointmentsPage } from './manage-appointments.page';
+import { CreateAppointmentPage } from '../create-appointment/create-appointment.page';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { ManageAppointmentsPage } from './manage-appointments.page';
     IonicModule,
     ManageAppointmentsPageRoutingModule
   ],
-  declarations: [ManageAppointmentsPage]
+  declarations: [ManageAppointmentsPage, CreateAppointmentPage]
 })
 export class ManageAppointmentsPageModule {}

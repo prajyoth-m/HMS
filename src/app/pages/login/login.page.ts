@@ -28,7 +28,26 @@ export class LoginPage implements OnInit {
   doLogin() {
     console.log("login");
     const auth = btoa(this.userEmail + ":" + this.userPassword);
-    this.router.navigate(['/patient/home']);
+    switch (this.userEmail) {
+      case "patient":
+        this.router.navigate(['/patient/home']);
+        break;
+      case "doctor":
+        this.router.navigate(['/doctor/home']);
+        break;
+      case "admin":
+        this.router.navigate(['/admin/home']);
+        break;
+      case "clerk":
+        this.router.navigate(['/clerk/home']);
+        break;
+      case "reception":
+        this.router.navigate(['/reception/home']);
+        break;
+      default:
+        this.router.navigate(['/patient/home']);
+        break;
+    }
     //this.userServices.doLogin(auth).subscribe((res) => { this.userServices.user = res; }, (err) => { this.pwdError = true; });
   }
 

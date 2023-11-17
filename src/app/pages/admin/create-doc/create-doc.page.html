@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Create User</ion-title>
+    <ion-title>Create Doctor</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="closeModal()"> Close </ion-button>
     </ion-buttons>
@@ -10,45 +10,39 @@
 <ion-content>
   <ion-card>
     <ion-card-header>
-      <ion-card-title>
-        Enter the below details to create a User.
-      </ion-card-title>
+      <ion-card-title> Select a user to mark as Doctor. </ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <ion-grid style="width: 85%">
         <ion-col>
           <ion-item fill="outline">
-            <ion-label position="floating">User Name</ion-label>
-            <ion-input
+            <ion-label position="floating">User</ion-label>
+            <ion-Select
               type="text"
               autocomplete="off"
               autocorrect="off"
               required
-              [(ngModel)]="data.name"
-            ></ion-input>
+              interface="action-sheet"
+              [(ngModel)]="user.userID"
+            >
+              <ion-select-option
+                *ngFor="let user of users"
+                [value]="user.userID"
+              >
+                {{user.name}}
+              </ion-select-option>
+            </ion-Select>
           </ion-item>
         </ion-col>
         <ion-col>
           <ion-item fill="outline">
-            <ion-label position="floating">User Email</ion-label>
+            <ion-label position="floating">Specialization</ion-label>
             <ion-input
               type="text"
               autocomplete="off"
               autocorrect="off"
               required
-              [(ngModel)]="data.email"
-            ></ion-input>
-          </ion-item>
-        </ion-col>
-        <ion-col>
-          <ion-item fill="outline">
-            <ion-label position="floating">Role</ion-label>
-            <ion-input
-              type="text"
-              autocomplete="off"
-              autocorrect="off"
-              required
-              [(ngModel)]="data.role"
+              [(ngModel)]="data.specialization"
             ></ion-input>
           </ion-item>
         </ion-col>
